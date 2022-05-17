@@ -1,4 +1,5 @@
 import React from "react";
+import {FaTimes} from 'react-icons/fa';
 
 function List(props) {
   const taskList = props.view;
@@ -7,8 +8,7 @@ function List(props) {
     <ul className="list-group">
       {taskList.map((task) => (
         <li className="input-group-text list-group-item bg-white mb-3 border border-dark">
-          <input class="form-check-input mt-1" type="checkbox" value={task} />
-          <label class="form-check-label">{task}</label>
+          <label class="form-check-label"><FaTimes className="mx-2" style={{color: 'red'}}/>{task}</label>
         </li>
       ))}
     </ul>
