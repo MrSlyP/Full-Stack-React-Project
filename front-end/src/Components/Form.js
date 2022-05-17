@@ -35,9 +35,6 @@ const submitHandler = (event) => {
             Add
           </button>
           <button class="btn btn-primary mx-3" type="button">
-            Modify
-          </button>
-          <button class="btn btn-primary mx-3" type="button">
             Delete
           </button>
         </div>
