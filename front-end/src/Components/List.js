@@ -8,7 +8,7 @@ function List(props) {
   return (
     <ul className="list-group">
       {taskList.map((task, i) => (
-        <li className="input-group-text list-group-item bg-white mb-3 border border-dark" key={task} onClick={deleteTask}>
+        <li className="input-group-text list-group-item bg-white mb-3 border border-dark" key={task}>
           <label className="form-check-label"><FaTimes className="mx-2" style={{color: 'red', cursor: 'pointer'}} 
           onClick={() => deleteTask(i)}/>{task}</label>
         </li>
