@@ -18,23 +18,23 @@ const submitHandler = (event) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <div class="card bg-dark border-primary text-white mb-3">
-        <div class="card-body">
-          <h5 class="card-title">TO DO LIST</h5>
+      <div className="card bg-dark border-primary text-white mb-3">
+        <div className="card-body">
+          <h5 className="card-title">TO DO LIST</h5>
           <input
             type="text"
-            class="form-control my-3"
+            className="form-control my-3"
             placeholder="Enter task"
             value={task}
             onChange={(e) => {setTask(e.target.value)}}
           />
           <button 
-          class="btn btn-primary mx-3" 
+          className="btn btn-primary mx-3" 
           type="button"
           onClick={taskHandler}>
             Add
           </button>
-          <button class="btn btn-primary mx-3" type="button">
+          <button className="btn btn-primary mx-3" type="button">
             Delete
           </button>
         </div>

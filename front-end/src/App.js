@@ -10,13 +10,17 @@ function App() {
       return setTaskList((taskList) => [...taskList, taskEntered]);
   };
 
+  function deleteTask(id) {
+    setTaskList(taskList.filter((task) => task[id] !== id))
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <div className="card bg-secondary border-light text-black p-5">
-        <div class="card-body">
+        <div className="card-body">
         <Form add={addTask}/>
-        <List view={taskList}/>
+        <List view={taskList} onDelete={deleteTask}/>
         </div>
         </div>
       </header>
