@@ -34,9 +34,6 @@ const submitHandler = (event) => {
           onClick={taskHandler}>
             Add
           </button>
-          <button className="btn btn-primary mx-3" type="button">
-            Delete
-          </button>
         </div>
       </div>
     </form>
