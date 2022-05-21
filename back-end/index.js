@@ -2,8 +2,14 @@ const express = require('express')
 const app = express();
 const port = 3000;
 
+var cors = require('cors')
+
+
+app.use(cors());
+
  //Declare an array of objects "tudoList"
  //initialized to a dummy array
+
 
 let tudoList =["Epicerie","Lavage"]
 
@@ -15,20 +21,17 @@ let tudoList =["Epicerie","Lavage"]
  
  }
 
- //function to remove the selected todo
+
 
 
 app.get('/', (req, res) => {
  res.send(tudoList)
 })
 
-app.get('/useEffect', (req, res) => {
-    
-    res.send(tudoList)
-   })
 
 app.post('/', (req, res) => {
- 
+ let newTudo = res.data 
+ addTudo(newTudo)
  res.send(tudoList)
 })
 
