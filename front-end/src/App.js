@@ -17,9 +17,20 @@ function App() {
 ,[]) 
  //inspire by https://stackabuse.com/making-asynchronous-http-requests-in-javascript-with-axios/
 const sendPostRequest = async (taskEntered) => {
-  let sending = {id:1, task: taskEntered}
+  let sending = {id: taskList.length,task: taskEntered}
   try {
       const resp = await axios.post ('http://localhost:3000/',sending);
+      console.log(resp.data);
+  } catch (err) {
+      // Handle Error Here
+      console.error(err);
+  }
+};
+
+const sendDelRequest = async (taskToDel) => {
+  let delReq = {list: taskToDel}
+  try {
+      const resp = await axios.post ('http://localhost:3000/del',delReq);
       console.log(resp.data);
   } catch (err) {
       // Handle Error Here
@@ -30,13 +41,15 @@ const sendPostRequest = async (taskEntered) => {
   function addTask(taskEntered) {
     sendPostRequest(taskEntered);
     setTaskList((taskList) => [...taskList, taskEntered]);
-  
+    
 }
 
   
   function deleteTask(id) {
     const taskToDelete = taskList[id];
+    sendDelRequest(id)
     setTaskList(taskList.filter((task) => task !== taskToDelete))
+    
   }
 
   return (
