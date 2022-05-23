@@ -1,33 +1,28 @@
-const express = require('express')
+const express = require("express");
 const app = express();
 const port = 3000;
-var cors = require('cors')
+var cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
-let tudoList =[]
- 
-app.get('/', (req, res) => {
-    
- res.send(tudoList)
-})
+let tudoList = [];
 
+app.get("/", (req, res) => {
+  res.send(tudoList);
+});
 
-app.post('/', (req, res) => {
-    let tudo = ('/', req.body.task);  
+app.post("/", (req, res) => {
+  let tudo = ("/", req.body.task);
+  tudoList.push(tudo);
+  res.send("${tudo}");
+});
 
-    tudoList.push(tudo);
-    res.send('${tudo}')
-})
-
-app.post('/del', (req, res) => {
-   
-    let idToDel = ('/del', req.body.task);
-    tudoList.splice(idToDel,1)
-    res.send('${tudoList}')
-})
-
+app.post("/del", (req, res) => {
+  let idToDel = ("/del", req.body.id);
+  tudoList.splice(idToDel, 1);
+  res.send("Todu was deleted");
+});
 
 app.listen(port, () => {
- console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});
