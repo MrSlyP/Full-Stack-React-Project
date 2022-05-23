@@ -1,20 +1,18 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 //import axios from 'axios';
 function Form(props) {
+  let AddTask = props.add;
 
-let AddTask = props.add
+  const [task, setTask] = useState("");
 
-const[task, setTask] = useState("");
-
-function taskHandler() {
+  function taskHandler() {
     AddTask(task);
     setTask("");
-}
+  }
 
-const submitHandler = (event) => {
-    event.preventDefault();   
-}
-
+  const submitHandler = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <form onSubmit={submitHandler}>
@@ -26,12 +24,15 @@ const submitHandler = (event) => {
             className="form-control my-3"
             placeholder="Enter task"
             value={task}
-            onChange={(e) => {setTask(e.target.value)}}
+            onChange={(e) => {
+              setTask(e.target.value);
+            }}
           />
-          <button 
-          className="btn btn-primary mx-3" 
-          type="button"
-          onClick={taskHandler}>
+          <button
+            className="btn btn-primary mx-3"
+            type="button"
+            onClick={taskHandler}
+          >
             Add
           </button>
         </div>
