@@ -1,5 +1,5 @@
 import React from "react";
-import {FaTimes} from 'react-icons/fa';
+import { FaTimes } from "react-icons/fa";
 
 function List(props) {
   const taskList = props.view;
@@ -8,9 +8,18 @@ function List(props) {
   return (
     <ul className="list-group">
       {taskList.map((task, i) => (
-        <li className="input-group-text list-group-item bg-white mb-3 border border-dark" key={task}>
-          <label className="form-check-label"><FaTimes className="mx-2" style={{color: 'red', cursor: 'pointer'}} 
-          onClick={() => deleteTask(i)}/>{task}</label>
+        <li
+          className="input-group-text list-group-item bg-white mb-3 border border-dark"
+          key={task}
+        >
+          <label className="form-check-label">
+            <FaTimes
+              className="mx-2"
+              style={{ color: "red", cursor: "pointer" }}
+              onClick={() => deleteTask(i)}
+            />
+            {task}
+          </label>
         </li>
       ))}
     </ul>
